@@ -10,42 +10,39 @@ export default function JanaAISection() {
   const features = [
     {
       icon: Brain,
-      title: "Intelligent Responses",
-      description: "Advanced AI algorithms providing contextual and meaningful interactions",
+      title: "LLM Integration",
+      description: "Powered by Groq's advanced language models for fast and accurate responses",
     },
     {
       icon: Zap,
-      title: "Lightning Fast",
-      description: "Optimized performance delivering instant responses and seamless experience",
+      title: "Real-time Assistance",
+      description: "Instant responses for coding, technical questions, and general assistance",
     },
     {
       icon: Users,
-      title: "User-Centric Design",
-      description: "Intuitive interface designed with user experience as the top priority",
+      title: "Personalized Interaction",
+      description: "Context-aware conversations tailored to your development needs",
     },
     {
       icon: Target,
-      title: "Precision Accuracy",
-      description: "High-accuracy responses tailored to specific user needs and contexts",
+      title: "Multi-purpose Support",
+      description: "Handles everything from code generation to technical documentation",
     },
   ]
 
   const techStack = [
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Natural Language Processing",
-    "Python",
-    "TensorFlow",
-    "React",
+    "Groq LLM",
+    "Next.js",
+    "TypeScript",
+    "OpenAI API",
+    "TailwindCSS",
+    "Vercel AI SDK",
     "Node.js",
-    "API Integration",
+    "WebSocket"
   ]
 
   return (
-    <section
-      id="jana-ai"
-      className="py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800"
-    >
+    <section id="jana-ai" className="py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,9 +66,9 @@ export default function JanaAISection() {
             <Brain className="w-10 h-10 text-white" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Jana AI Project</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Jana AI Assistant</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            An innovative AI-powered solution showcasing the future of intelligent applications
+            A personal AI assistant powered by Groq's LLM, providing fast and intelligent responses for developers
           </p>
         </motion.div>
 
@@ -98,31 +95,31 @@ export default function JanaAISection() {
               >
                 <div className="flex items-center space-x-3 mb-6">
                   <Sparkles className="w-8 h-8" />
-                  <h3 className="text-2xl font-bold">Jana AI</h3>
+                  <h3 className="text-2xl font-bold">Virtual Development Assistant</h3>
                 </div>
 
                 <p className="text-lg leading-relaxed mb-6">
-                  Jana AI represents the cutting-edge of artificial intelligence applications, combining advanced
-                  machine learning algorithms with intuitive user experience design to create a powerful and accessible
-                  AI solution.
+                  Jana AI is my personal virtual assistant that leverages Groq's large language model to provide lightning-fast 
+                  responses for coding assistance, technical queries, and development guidance. It combines the power of advanced 
+                  LLMs with a user-friendly interface for seamless interaction.
                 </p>
 
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span>Advanced Natural Language Processing</span>
+                    <span>Groq LLM Integration for Fast Response Times</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span>Real-time Learning Capabilities</span>
+                    <span>Code Generation & Technical Problem Solving</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span>Scalable Architecture Design</span>
+                    <span>Context-Aware Development Assistance</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span>Cross-platform Compatibility</span>
+                    <span>Real-time Chat Interface</span>
                   </div>
                 </div>
               </motion.div>
@@ -270,28 +267,28 @@ export default function JanaAISection() {
           className="text-center"
         >
           <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Experience Jana AI</h3>
+            <h3 className="text-2xl font-bold mb-4">Try Jana AI Assistant</h3>
             <p className="text-lg mb-6 opacity-90">
-              Discover the future of AI-powered applications and see innovation in action
+              Experience quick, intelligent responses powered by Groq's LLM technology
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 className="bg-white text-purple-600 hover:bg-gray-100 font-semibold"
-                onClick={() => window.open("#", "_blank")}
+                onClick={() => window.open("https://jana-ai.vercel.app", "_blank")}
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
-                Try Jana AI
+                Chat with Jana AI
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-purple-600 font-semibold"
-                onClick={() => window.open("#", "_blank")}
+                onClick={() => window.open("https://github.com/JanakiRaman-2002/jana-ai", "_blank")}
               >
-                View Documentation
+                View Source Code
               </Button>
             </div>
           </div>

@@ -56,7 +56,12 @@ export default function ProjectsSection() {
 
   // Ensure projects is always an array before using array methods
   const safeProjects = Array.isArray(projects) ? projects : []
-  const categories = ["All", ...Array.from(new Set(safeProjects.map((project) => project.category)))]
+  const categories = ["All", ...Array.from(new Set(safeProjects.map((project) => project.category)))].map(
+    (category, index) => ({
+      id: `category-${index}`,
+      name: category
+    })
+  )
   const filteredProjects = selectedCategory === "All" 
     ? safeProjects 
     : safeProjects.filter((project) => project.category === selectedCategory)
@@ -84,7 +89,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Category Filter */}
+        {/* Category Filter with unique keys */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,17 +99,17 @@ export default function ProjectsSection() {
         >
           {categories.map((category) => (
             <motion.button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
+              key={category.id}
+              onClick={() => setSelectedCategory(category.name)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                selectedCategory === category
+                selectedCategory === category.name
                   ? "bg-blue-600 text-white shadow-lg"
                   : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {category}
+              {category.name}
             </motion.button>
           ))}
         </motion.div>

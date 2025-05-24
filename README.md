@@ -1,63 +1,70 @@
+
 # Jana's Portfolio Website
 
 A modern, responsive portfolio website built with Next.js, TypeScript, and TailwindCSS. Features dynamic content loading, smooth animations, and a dark mode toggle.
 
 ## 🚀 Features
 
-- **Responsive Design**: Fully responsive across all devices
-- **Dark Mode**: System-aware dark mode with manual toggle
-- **Dynamic Content**: Content loaded from API endpoints
-- **Smooth Animations**: Using Framer Motion for smooth transitions
-- **SEO Optimized**: Built with Next.js for optimal SEO performance
+* **Responsive Design**: Fully responsive across all devices
+* **Dark Mode**: System-aware dark mode with manual toggle
+* **Dynamic Content**: Content loaded from API endpoints
+* **Smooth Animations**: Using Framer Motion for smooth transitions
+* **SEO Optimized**: Built with Next.js for optimal SEO performance
 
 ### Key Sections
 
-- 📚 Books & Publications
-- 💼 Professional Experience
-- 🎯 Skills & Expertise
-- 🏆 Certifications
-- 🌟 Featured Projects
-- 📅 Events & Activities
-- 📝 Blog Posts
-- 📫 Contact Information
+* 📚 Books & Publications
+* 💼 Professional Experience
+* 🎯 Skills & Expertise
+* 🏆 Certifications
+* 🌟 Featured Projects
+* 📅 Events & Activities
+* 📝 Blog Posts
+* 📫 Contact Information
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14
-- **Language**: TypeScript
-- **Styling**: TailwindCSS
-- **Animations**: Framer Motion
-- **UI Components**: shadcn/ui
-- **Icons**: Lucide Icons
-- **API Integration**: Axios
-- **Deployment**: Vercel
+* **Framework**: Next.js 14
+* **Language**: TypeScript
+* **Styling**: TailwindCSS
+* **Animations**: Framer Motion
+* **UI Components**: shadcn/ui
+* **Icons**: Lucide Icons
+* **API Integration**: Axios
+* **Deployment**: Vercel
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
+* Node.js 18+
+* npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/JanakiRaman-2002/portfolio-website.git
+git clone https://github.com/Janakiraman1021/JANA_PORT_NXT.git
 ```
 
 2. Install dependencies:
+
 ```bash
-cd portfolio-website
+cd JANA_PORT_NXT
 npm install
 ```
 
 3. Create a `.env.local` file:
+
 ```env
-NEXT_PUBLIC_API_URL=https://port-backend-onv7.onrender.com/api
+# Add your environment variables here
+# Example:
+# NEXT_PUBLIC_API_URL=<your_api_endpoint>
 ```
 
 4. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -65,7 +72,7 @@ npm run dev
 ## 📂 Project Structure
 
 ```
-portfolio-website/
+JANA_PORT_NXT/
 ├── app/                    # Next.js app directory
 ├── components/             # Reusable components
 │   ├── sections/          # Page sections
@@ -82,22 +89,24 @@ portfolio-website/
 
 ### Environment Variables
 
-- `NEXT_PUBLIC_API_URL`: API endpoint URL
+* `NEXT_PUBLIC_API_URL`: API endpoint URL (set in `.env.local`)
 
 ### API Integration
 
 The website fetches data from several endpoints:
-- `/api/skills` - Technical skills and proficiency levels
-- `/api/projects` - Portfolio projects
-- `/api/books` - Published books and writings
-- `/api/certifications` - Professional certifications
-- `/api/events` - Events and speaking engagements
+
+* `/api/skills` - Technical skills and proficiency levels
+* `/api/projects` - Portfolio projects
+* `/api/books` - Published books and writings
+* `/api/certifications` - Professional certifications
+* `/api/events` - Events and speaking engagements
 
 ## 🎨 Customization
 
 ### Theming
 
 Colors and theme settings can be modified in:
+
 ```bash
 tailwind.config.js
 ```
@@ -109,10 +118,11 @@ Update the API endpoints in `lib/api.ts` to point to your backend service.
 ## 📱 Progressive Web App
 
 The website is PWA-ready with:
-- Service Worker support
-- Offline capability
-- App manifest
-- Install prompts
+
+* Service Worker support
+* Offline capability
+* App manifest
+* Install prompts
 
 ## 🚀 Deployment
 
@@ -122,6 +132,8 @@ The website is PWA-ready with:
 2. Connect your repository to Vercel
 3. Configure environment variables
 4. Deploy!
+
+🔗 **Live Website**: [https://jana-port-nxt.vercel.app](https://jana-port-nxt.vercel.app)
 
 ## 📄 License
 
@@ -135,11 +147,15 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 Janaki Raman - [@JanakiRaman2002](https://twitter.com/JanakiRaman2002)
 
-Project Link: [https://github.com/JanakiRaman-2002/portfolio-website](https://github.com/JanakiRaman-2002/portfolio-website)
+Project Link: [https://github.com/Janakiraman1021/JANA\_PORT\_NXT](https://github.com/Janakiraman1021/JANA_PORT_NXT)
 
 ## 🙏 Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [TailwindCSS](https://tailwindcss.com)
-- [Framer Motion](https://www.framer.com/motion)
-- [shadcn/ui](https://ui.shadcn.com)
+* [Next.js Documentation](https://nextjs.org/docs)
+* [TailwindCSS](https://tailwindcss.com)
+* [Framer Motion](https://www.framer.com/motion)
+* [shadcn/ui](https://ui.shadcn.com)
+
+
+
+
