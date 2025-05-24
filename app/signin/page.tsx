@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Github, Twitter, Sparkles, Lock, Mail, Eye, EyeOff } from "lucide-react"
 import toast, { Toaster } from "react-hot-toast"
 import SignInScene from "@/components/3d/SignInScene"
+import axios from 'axios'
 
 export default function SignIn() {
   const router = useRouter()
@@ -17,22 +18,73 @@ export default function SignIn() {
     email: "",
     password: ""
   })
+  const [errors, setErrors] = useState({
+    email: '',
+    password: ''
+  })
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const validateForm = () => {
+    let isValid = true
+    const newErrors = {
+      email: '',
+      password: ''
+    }
+
+    if (!formData.email) {
+      newErrors.email = 'Email is required'
+      isValid = false
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid'
+      isValid = false
+    }
+
+    if (!formData.password) {
+      newErrors.password = 'Password is required'
+      isValid = false
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters'
+      isValid = false
+    }
+
+    setErrors(newErrors)
+    return isValid
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+
     setIsLoading(true)
     
-    // Simulate API call
-    try {
-      // Add your actual authentication logic here
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      toast.success("Successfully signed in!")
-      router.push("/")
-    } catch (error) {
-      toast.error("Failed to sign in. Please try again.")
-    } finally {
-      setIsLoading(false)
-    }
+    axios.post('https://port-backend-onv7.onrender.com/api/auth/login', {
+      email: formData.email,
+      password: formData.password
+    })
+      .then(response => {
+        // Store the token
+        localStorage.setItem('token', response.data.token)
+        
+        // Show success message
+        toast.success('Successfully signed in!')
+        
+        // Redirect to home page
+        router.push('/')
+      })
+      .catch(error => {
+        // Handle different types of errors
+        const errorMessage = error.response?.data?.message || 
+                           error.message || 
+                           'Failed to sign in. Please try again.'
+        toast.error(errorMessage)
+        
+        console.error('Login error:', error)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword)
@@ -97,11 +149,21 @@ export default function SignIn() {
                 <Input
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, email: e.target.value })
+                    if (errors.email) setErrors({ ...errors, email: '' })
+                  }}
                   placeholder="Enter your email"
-                  className="pl-10 bg-white/5 border-white/10 focus:border-purple-500 text-white"
+                  className={`pl-10 bg-white/5 border-white/10 focus:border-purple-500 text-white ${
+                    errors.email ? 'border-red-500' : ''
+                  }`}
                   required
                 />
+                {errors.email && (
+                  <span className="text-xs text-red-500 mt-1 block">
+                    {errors.email}
+                  </span>
+                )}
               </div>
             </motion.div>
 
@@ -118,9 +180,14 @@ export default function SignIn() {
                 <Input
                   type={showPassword ? "text" : "password"}
                   value={formData.password}
-                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, password: e.target.value })
+                    if (errors.password) setErrors({ ...errors, password: '' })
+                  }}
                   placeholder="Enter your password"
-                  className="pl-10 pr-10 bg-white/5 border-white/10 focus:border-purple-500 text-white"
+                  className={`pl-10 pr-10 bg-white/5 border-white/10 focus:border-purple-500 text-white ${
+                    errors.password ? 'border-red-500' : ''
+                  }`}
                   required
                 />
                 <button
