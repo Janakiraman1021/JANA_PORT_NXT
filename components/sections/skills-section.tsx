@@ -162,30 +162,30 @@ export default function SkillsSection() {
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{category}</h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {categorySkills.map((skill, index) => (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+                  {categorySkills.map((skill) => (
                     <motion.div
-                      key={skill._id} // Changed from id to _id
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      key={skill.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      whileHover={{ y: -5 }}
-                      className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="group"
                     >
-                      <div className="flex justify-between items-start mb-4">
-                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
-                        <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{skill.level}%</span>
-                      </div>
+                      <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div className="flex justify-between items-start mb-4">
+                          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
+                          <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{skill.level}%</span>
+                        </div>
 
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
-                        <motion.div
-                          className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.5, delay: index * 0.1 }}
-                        />
+                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
+                          <motion.div
+                            className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.5, delay: 0.1 }}
+                          />
+                        </div>
                       </div>
                     </motion.div>
                   ))}

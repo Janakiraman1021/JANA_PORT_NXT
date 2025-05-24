@@ -72,6 +72,38 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
+
+  .animate-gradient {
+    background-size: 200%;
+    animation: gradient 8s linear infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .responsive-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-padding {
+    @apply py-12 sm:py-20;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .responsive-text {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
 }
 
 /* Smooth scrolling */

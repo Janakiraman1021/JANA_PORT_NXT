@@ -120,51 +120,26 @@ export default function ProjectsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12"
         >
           <AnimatePresence>
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <motion.div
                 key={project._id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="h-full"
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full">
-                  <div className="relative overflow-hidden aspect-video">
+                <Card className="h-full hover:shadow-xl transition-all duration-300">
+                  <div className="relative aspect-video">
                     <Image
                       src={project.image || "/placeholder.png"}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover rounded-t-lg"
                     />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                      {project.liveUrl && (
-                        <Button
-                          size="sm"
-                          className="bg-white text-black hover:bg-gray-100"
-                          onClick={() => window.open(project.liveUrl, "_blank")}
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </Button>
-                      )}
-                      {project.githubUrl && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="border-white text-white hover:bg-white hover:text-black"
-                          onClick={() => window.open(project.githubUrl, "_blank")}
-                        >
-                          <Github className="w-4 h-4 mr-2" />
-                          Code
-                        </Button>
-                      )}
-                    </div>
                   </div>
                   <CardContent className="p-6">
                     <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">

@@ -54,7 +54,7 @@ export default function AboutSection() {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Journey in Technology</h3>
             <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
               <p>
-                As a second-year IT undergraduate, I've discovered my passion for software development and the
+                As a Third-year IT undergraduate, I've discovered my passion for software development and the
                 incredible potential of technology to solve real-world problems. My journey began with curiosity about
                 how applications work, which quickly evolved into a deep fascination with creating them.
               </p>

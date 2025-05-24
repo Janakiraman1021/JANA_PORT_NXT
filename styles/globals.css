@@ -10,7 +10,21 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .animate-gradient {
+    background-size: 200%;
+    animation: gradient 8s linear infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
 }
+
 
 @layer base {
   :root {
@@ -47,6 +61,8 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --navigation-height: 4.5rem;
+    --blur-size: 10px;
   }
   .dark {
     --background: 0 0% 3.9%;
