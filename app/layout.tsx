@@ -8,28 +8,18 @@ import { Toaster } from "react-hot-toast"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "JanakiRaman K - Software Developer Portfolio",
-  description:
-    "Portfolio of JanakiRaman K, a passionate second-year IT undergraduate specializing in software development with focus on intuitive solutions.",
-  keywords: "JanakiRaman K, Software Developer, IT Student, Portfolio, Web Development, Programming",
-  authors: [{ name: "JanakiRaman K" }],
-  creator: "JanakiRaman K",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://dev-jr.vercel.app",
-    title: "JanakiRaman K - Software Developer Portfolio",
-    description:
-      "Portfolio of JanakiRaman K, a passionate second-year IT undergraduate specializing in software development.",
-    siteName: "JanakiRaman K Portfolio",
+  title: "JanakiRaman K - Portfolio",
+  description: "Full Stack Developer & Blockchain Enthusiast",
+  icons: {
+    icon: [
+      {
+        url: "https://jr-portfolio-gilt.vercel.app/static/media/HeroImage.f20a12b26731c4549fbc.jpg",
+        href: "https://jr-portfolio-gilt.vercel.app/static/media/HeroImage.f20a12b26731c4549fbc.jpg",
+      },
+    ],
+    shortcut: "https://jr-portfolio-gilt.vercel.app/static/media/HeroImage.f20a12b26731c4549fbc.jpg",
+    apple: "https://jr-portfolio-gilt.vercel.app/static/media/HeroImage.f20a12b26731c4549fbc.jpg",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "JanakiRaman K - Software Developer Portfolio",
-    description:
-      "Portfolio of JanakiRaman K, a passionate second-year IT undergraduate specializing in software development.",
-  },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -39,6 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}

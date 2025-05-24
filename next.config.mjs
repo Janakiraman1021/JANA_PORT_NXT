@@ -7,7 +7,11 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    domains: [
+      'jr-portfolio-gilt.vercel.app',
+      'images.unsplash.com',
+      'port-backend-onv7.onrender.com'
+    ],
   },
 }
 
