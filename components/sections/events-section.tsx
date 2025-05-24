@@ -29,7 +29,7 @@ const eventData: Event[] = [{
   location: "Jaya Engineering College, Chennai & Online",
   attendees: 800,
   role: "Host & Organizer",
-  organization: "Committee Chief",
+  organization: "Jaya Engineering College, Chennai",
   eventUrl: "https://icite-25.vercel.app/",
   image: "/assets/events/icite.png",
   highlights: [

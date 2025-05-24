@@ -1,35 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, Suspense } from "react"
 import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Github, Twitter, Sparkles, Lock, Mail, Eye, EyeOff } from "lucide-react"
-import { Canvas } from "@react-three/fiber"
-import { Float, Stars } from "@react-three/drei"
 import toast, { Toaster } from "react-hot-toast"
-
-function FloatingCube() {
-  return (
-    <Float
-      speed={1.5}
-      rotationIntensity={1.5}
-      floatIntensity={2}
-    >
-      <mesh>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial 
-          color="#a855f7"
-          emissive="#ec4899"
-          emissiveIntensity={0.5}
-          transparent
-          opacity={0.7}
-        />
-      </mesh>
-    </Float>
-  )
-}
+import SignInScene from "@/components/3d/SignInScene"
 
 export default function SignIn() {
   const router = useRouter()
@@ -60,25 +38,14 @@ export default function SignIn() {
   const togglePasswordVisibility = () => setShowPassword(!showPassword)
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen relative flex items-center justify-center overflow-hidden bg-black">
       {/* 3D Background */}
       <div className="absolute inset-0">
-        <Canvas>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
-          <Stars 
-            radius={50}
-            depth={50}
-            count={5000}
-            factor={4}
-            saturation={0}
-          />
-          <FloatingCube />
-        </Canvas>
+        <SignInScene />
       </div>
 
       {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10 backdrop-blur-[2px]" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -89,8 +56,24 @@ export default function SignIn() {
         <motion.div
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className="bg-white/10 dark:bg-gray-900/20 backdrop-blur-xl rounded-2xl shadow-2xl p-8 relative overflow-hidden border border-white/20"
+          className="bg-white/5 dark:bg-gray-900/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 relative overflow-hidden border border-white/10"
+          whileHover={{ boxShadow: "0 0 40px rgba(168, 85, 247, 0.2)" }}
         >
+          {/* Add a floating gradient orb */}
+          <motion.div
+            className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+
           <div className="text-center mb-8 relative">
             <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 animate-gradient">
               Welcome Back
