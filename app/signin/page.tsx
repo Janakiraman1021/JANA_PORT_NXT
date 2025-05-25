@@ -70,8 +70,8 @@ export default function SignIn() {
         // Show success message
         toast.success('Successfully signed in!')
         
-        // Redirect to home page
-        router.push('/')
+        // Redirect to port updater website
+        window.location.href = 'https://port-updater.vercel.app/'
       })
       .catch(error => {
         // Handle different types of errors
