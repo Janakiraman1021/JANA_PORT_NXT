@@ -276,20 +276,18 @@ export default function JanaAISection() {
               <Button
                 size="lg"
                 className="bg-white text-purple-600 hover:bg-gray-100 font-semibold"
-                onClick={() => window.open("https://jana-ai.vercel.app", "_blank")}
+                onClick={() => {
+                  document.getElementById('jana-ai')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
                 Chat with Jana AI
               </Button>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-purple-600 font-semibold"
-                onClick={() => window.open("https://github.com/JanakiRaman-2002/jana-ai", "_blank")}
-              >
-                View Source Code
-              </Button>
+              
             </div>
           </div>
         </motion.div>
