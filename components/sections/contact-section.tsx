@@ -54,19 +54,19 @@ export default function ContactSection() {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/JanakiRaman-2002",
+      href: "https://github.com/Janakiraman1021",
       color: "hover:text-gray-900 dark:hover:text-white",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/janaki-raman/",
+      href: "https://www.linkedin.com/in/janakiraman-k-28a45a257/",
       color: "hover:text-blue-600",
     },
     {
       icon: Twitter,
       label: "Twitter",
-      href: "https://twitter.com/JanakiRaman2002",
+      href: "https://x.com/janthedevking21",
       color: "hover:text-blue-400",
     },
   ]
