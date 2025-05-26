@@ -10,6 +10,7 @@ import ProjectsSection from "@/components/sections/projects-section"
 import InternshipsSection from "@/components/sections/internships-section"
 import CertificationsSection from "@/components/sections/certifications-section"
 import AchievementsSection from "@/components/sections/achievements-section"
+import HackathonSection from "@/components/sections/hackathon-section"
 import BooksSection from "@/components/sections/books-section"
 import EventsSection from "@/components/sections/events-section"
 import HobbiesSection from "@/components/sections/hobbies-section"
@@ -43,6 +44,7 @@ export default function Home() {
       <InternshipsSection />
       <CertificationsSection />
       <AchievementsSection />
+      <HackathonSection />
       <BooksSection />
       <EventsSection />
       <HobbiesSection />
