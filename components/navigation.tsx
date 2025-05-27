@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Hexagon, Zap, Moon, Sun, ChevronDown, User } from "lucide-react"
+import { Hexagon, Zap, Moon, Sun, ChevronDown, User, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -197,6 +197,22 @@ export default function Navigation() {
 							</div>
 						</motion.div>
 
+						{/* Add this mobile menu button */}
+						<div className="lg:hidden">
+							<motion.button
+								whileTap={{ scale: 0.9 }}
+								onClick={() => setIsOpen(!isOpen)}
+								className="relative z-50 p-2 bg-black/20 backdrop-blur-sm rounded-full border border-white/10"
+							>
+								{isOpen ? (
+									<X className="w-6 h-6 text-white" />
+								) : (
+									<Menu className="w-6 h-6 text-white" />
+								)}
+								<div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 blur-sm" />
+							</motion.button>
+						</div>
+
 						{/* Enhanced Desktop Navigation */}
 						<div className="hidden lg:flex space-x-8">
 							{Object.entries(navCategories).map(([category, items]) => (
@@ -324,6 +340,17 @@ export default function Navigation() {
 								<div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
 								<div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-cyan-900/20 to-purple-900/20" />
 							</div>
+
+							{/* Add this close button */}
+							<motion.button
+								className="absolute top-6 right-6 p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 z-50"
+								whileHover={{ scale: 1.1 }}
+								whileTap={{ scale: 0.9 }}
+								onClick={() => setIsOpen(false)}
+							>
+								<X className="w-6 h-6 text-white" />
+								<div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 blur-sm" />
+							</motion.button>
 
 							<div className="relative px-4 py-20 h-full overflow-auto scrollbar-none">
 								{Object.entries(navCategories).map(([category, items], index) => (
