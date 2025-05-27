@@ -17,6 +17,7 @@ import HobbiesSection from "@/components/sections/hobbies-section"
 import JanaAISection from "@/components/sections/jana-ai-section"
 import ContactSection from "@/components/sections/contact-section"
 import LoadingScreen from "@/components/loading-screen"
+import ScrollToTop from "@/components/scroll-to-top"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -50,6 +51,7 @@ export default function Home() {
       <HobbiesSection />
       <JanaAISection />
       <ContactSection />
+      <ScrollToTop />
     </main>
   )
 }
