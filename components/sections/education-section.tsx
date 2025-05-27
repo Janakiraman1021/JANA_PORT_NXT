@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { GraduationCap, Calendar, MapPin, Award } from "lucide-react"
+import { GraduationCap, Calendar, Award } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import axios from "axios"
 
@@ -30,7 +30,6 @@ export default function EducationSection() {
         }
       } catch (err) {
         setError('Failed to fetch education data')
-        // Fallback data
         setEducationData([
           {
             _id: "1",
@@ -50,87 +49,149 @@ export default function EducationSection() {
 
   if (loading) {
     return (
-      <section id="education" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-          </div>
+      <section id="education" className="py-32 bg-background">
+        <div className="max-w-7xl mx-auto flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-primary border-b-4"></div>
         </div>
       </section>
     )
   }
 
   return (
-    <section id="education" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            My academic journey and qualifications
-          </p>
-        </motion.div>
+    <section id="education" className="relative py-32 overflow-hidden bg-background text-foreground">
+      {/* Gradient Background with Animation */}
+      <div className="absolute inset-0 z-0">
+        <motion.div 
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"
+          animate={{
+            opacity: [0.5, 0.8, 0.5],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div 
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-secondary/10 via-transparent to-transparent"
+          animate={{
+            opacity: [0.5, 0.8, 0.5],
+            scale: [1.1, 1, 1.1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 4
+          }}
+        />
+      </div>
 
-        <div className="space-y-8">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.h2 
+          className="text-center text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Education
+        </motion.h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {educationData.map((edu, index) => (
             <motion.div
               key={edu._id}
+              className="group relative rounded-3xl p-1 backdrop-blur-xl bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/5 hover:from-primary/20 hover:via-secondary/20 hover:to-primary/20 transition-all duration-700 cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              whileHover={{ 
+                scale: 1.02,
+                filter: "brightness(1.1)",
+              }}
+              whileTap={{ 
+                scale: 0.98,
+              }}
             >
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <CardContent className="p-8">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                    <div className="flex items-start space-x-4">
-                      <motion.div
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                        className="flex-shrink-0 w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center"
+              {/* Animated border glow effect */}
+              <motion.div 
+                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-700"
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+
+              <Card className="bg-card/30 backdrop-blur rounded-3xl border-0 overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500">
+                <CardContent className="p-8 relative z-10">
+                  <motion.div 
+                    className="flex items-center gap-6 mb-6"
+                    whileHover={{ x: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div 
+                      className="bg-gradient-to-br from-primary/20 to-secondary/20 p-4 rounded-full shadow-[0_0_15px_var(--primary)] group-hover:shadow-[0_0_25px_var(--primary)] transition-shadow duration-500"
+                      whileHover={{ 
+                        rotate: 360,
+                        scale: 1.1,
+                      }}
+                      transition={{ 
+                        duration: 0.6,
+                        type: "spring",
+                        stiffness: 200
+                      }}
+                    >
+                      <GraduationCap className="text-primary w-10 h-10 group-hover:animate-bounce" />
+                    </motion.div>
+                    
+                    <div>
+                      <motion.h3 
+                        className="text-3xl font-bold text-foreground"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       >
-                        <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                      </motion.div>
-
-                      <div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
-                        <p className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">
-                          {edu.institution}
-                        </p>
-
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
-                          <div className="flex items-center space-x-2">
-                            <Calendar className="w-4 h-4" />
-                            <span>{edu.period}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <Award className="w-4 h-4" />
-                            <span>{edu.score}</span>
-                          </div>
-                        </div>
-                      </div>
+                        {edu.degree}
+                      </motion.h3>
+                      <p className="text-xl text-muted-foreground">
+                        {edu.institution}
+                      </p>
                     </div>
-                  </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="grid grid-cols-2 gap-6 text-muted-foreground"
+                    initial={{ opacity: 0.6 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.div 
+                      className="flex items-center gap-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Calendar className="text-secondary w-5 h-5" />
+                      <span>{edu.period}</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Award className="text-primary w-5 h-5" />
+                      <span>{edu.score}</span>
+                    </motion.div>
+                  </motion.div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
-
-        {error && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center mt-8 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg"
-          >
-            <p className="text-red-700 dark:text-red-300">{error}</p>
-          </motion.div>
-        )}
       </div>
     </section>
   )
