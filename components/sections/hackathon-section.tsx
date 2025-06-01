@@ -1,5 +1,22 @@
-import { useState, useEffect } from "react"
-import { Trophy, Medal, Users, Calendar, MapPin, Star, Award, ChevronLeft, ChevronRight, Zap, Terminal, Code, Cpu, Shield, Rocket } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import {
+  Trophy,
+  Users,
+  Calendar,
+  MapPin,
+  Award,
+  ChevronLeft,
+  ChevronRight,
+  Code,
+  Zap,
+  Star,
+  ArrowRight,
+} from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 
 interface Hackathon {
   title: string
@@ -20,440 +37,417 @@ interface Hackathon {
 
 export default function HackathonSection() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [matrixRain, setMatrixRain] = useState<Array<{
-    id: number
-    x: number
-    delay: number
-    chars: string[]
-  }>>([])
-  const [scanlinePosition, setScanlinePosition] = useState(0)
-  const [glitchActive, setGlitchActive] = useState(false)
-  const [particleCount] = useState(50)
 
   const hackathons: Hackathon[] = [
-  {
-    title: "SRM Hackverse 2024",
-    type: "Participant",
-    rank: "Attended",
-    category: "Blockchain",
-    date: "April 2024",
-    description: "Showcased decentralized identity wallet at RMZ One Paramount",
-    participants: "400+",
-    location: "RMZ One Paramount, Chennai",
-    icon: Users,
-    color: "from-indigo-400 to-cyan-500",
-    stats: {
-      "Teams": "120+",
-      "Duration": "24h",
-      "Prize Pool": "$5K",
+    {
+      title: "SRM Hackverse 2024",
+      type: "Participant",
+      rank: "Attended",
+      category: "Blockchain",
+      date: "April 2024",
+      description: "Showcased decentralized identity wallet at RMZ One Paramount",
+      participants: "400+",
+      location: "RMZ One Paramount, Chennai",
+      icon: Users,
+      color: "from-violet-500 to-purple-600",
+      stats: {
+        Teams: "120+",
+        Duration: "24h",
+        "Prize Pool": "$5K",
+      },
+      prize: "Certificate of Participation",
     },
-    prize: "Certificate of Participation",
-  },
-  {
-    title: "ByteVerse 2024",
-    type: "Winner",
-    rank: "3rd Place",
-    category: "Open Innovation",
-    date: "May 2024",
-    description: "Built a cross-platform ML tool with cloud sync",
-    participants: "300+",
-    location: "SRM Institute of Science and Technology",
-    icon: Trophy,
-    color: "from-yellow-400 to-orange-500",
-    stats: {
-      "Teams": "80+",
-      "Duration": "36h",
-      "Prize Pool": "$3K",
+    {
+      title: "ByteVerse 2024",
+      type: "Winner",
+      rank: "3rd Place",
+      category: "Open Innovation",
+      date: "May 2024",
+      description: "Built a cross-platform ML tool with cloud sync",
+      participants: "300+",
+      location: "SRM Institute of Science and Technology",
+      icon: Trophy,
+      color: "from-amber-500 to-orange-600",
+      stats: {
+        Teams: "80+",
+        Duration: "36h",
+        "Prize Pool": "$3K",
+      },
+      prize: "Third Place - $500",
     },
-    prize: "Third Place - $500",
-  },
-  {
-    title: "Hacktronix 2K24",
-    type: "Participant",
-    rank: "Attended",
-    category: "Web2",
-    date: "July 2024",
-    description: "Created a social productivity app at Sairam Engineering College",
-    participants: "500+",
-    location: "Sairam Engineering College",
-    icon: Users,
-    color: "from-green-400 to-emerald-500",
-    stats: {
-      "Teams": "150+",
-      "Duration": "24h",
-      "Prize Pool": "$2K",
+    {
+      title: "Hacktronix 2K24",
+      type: "Winner",
+      rank: "1st Place",
+      category: "Web2",
+      date: "July 2024",
+      description: "Created a social productivity app at Sairam Engineering College",
+      participants: "500+",
+      location: "Sairam Engineering College",
+      icon: Trophy,
+      color: "from-emerald-500 to-teal-600",
+      stats: {
+        Teams: "150+",
+        Duration: "24h",
+        "Prize Pool": "$2K",
+      },
+      prize: "1st Prize",
     },
-    prize: "1st Prize ",
-  },
-  {
-    title: "DUHacks 3.0",
-    type: "Winner",
-    rank: "1st Place",
-    category: "Blockchain",
-    date: "December 2024",
-    description: "Built a decentralized freelance escrow platform",
-    participants: "600+",
-    location: "Delhi Technological University",
-    icon: Trophy,
-    color: "from-blue-500 to-teal-500",
-    stats: {
-      "Teams": "200+",
-      "Duration": "48h",
-      "Prize Pool": "$10K",
+    {
+      title: "DUHacks 3.0",
+      type: "Winner",
+      rank: "1st Place",
+      category: "Blockchain",
+      date: "December 2024",
+      description: "Built a decentralized freelance escrow platform",
+      participants: "600+",
+      location: "Delhi Technological University",
+      icon: Trophy,
+      color: "from-blue-500 to-cyan-600",
+      stats: {
+        Teams: "200+",
+        Duration: "48h",
+        "Prize Pool": "$10K",
+      },
+      prize: "Winner - $5000",
     },
-    prize: "Winner - $5000",
-  },
-  {
-    title: "Unfold 2024",
-    type: "Attendee",
-    rank: "Attended",
-    category: "Blockchain",
-    date: "December 2024",
-    description: "Explored Web3 innovations at Bengaluru’s top startup expo",
-    participants: "1000+",
-    location: "Bangalore, India",
-    icon: Award,
-    color: "from-purple-400 to-pink-500",
-    stats: {
-      "Exhibitors": "300+",
-      "Workshops": "50+",
-      "Networking": "High",
+    {
+      title: "Unfold 2024",
+      type: "Attendee",
+      rank: "Attended",
+      category: "Blockchain",
+      date: "December 2024",
+      description: "Explored Web3 innovations at Bengaluru's top startup expo",
+      participants: "1000+",
+      location: "Bangalore, India",
+      icon: Award,
+      color: "from-violet-500 to-purple-600",
+      stats: {
+        Exhibitors: "300+",
+        Workshops: "50+",
+        Networking: "High",
+      },
+      prize: "Certificate of Participation",
     },
-    prize: "Certificate of Participation",
-  },
-  {
-    title: "OpenHacks",
-    type: "Attendee",
-    rank: "Attended",
-    category: "Web2 & Web3",
-    date: "April 2025",
-    description: "Participated in hybrid innovation challenge at Jaya Engineering College",
-    participants: "350+",
-    location: "Jaya Engineering College, Chennai",
-    icon: Users,
-    color: "from-fuchsia-500 to-violet-500",
-    stats: {
-      "Teams": "100+",
-      "Duration": "48h",
-      "Prize Pool": "$4K",
+    {
+      title: "OpenHacks",
+      type: "Attendee",
+      rank: "Attended",
+      category: "Web2 & Web3",
+      date: "April 2025",
+      description: "Participated in hybrid innovation challenge at Jaya Engineering College",
+      participants: "350+",
+      location: "Jaya Engineering College, Chennai",
+      icon: Users,
+      color: "from-pink-500 to-rose-600",
+      stats: {
+        Teams: "100+",
+        Duration: "48h",
+        "Prize Pool": "$4K",
+      },
+      prize: "Certificate of Participation",
     },
-    prize: "Certificate of Participation",
-  },
-  {
-    title: "Hackverse 5.0",
-    type: "Attendee",
-    rank: "Attended",
-    category: "Web3",
-    date: "January 2025",
-    description: "Networked with Web3 builders at NITK Surathkal",
-    participants: "500+",
-    location: "NITK Surathkal, Karnataka",
-    icon: Award,
-    color: "from-blue-600 to-cyan-600",
-    stats: {
-      "Workshops": "10+",
-      "Speakers": "20+",
-      "Networking": "High",
+    {
+      title: "Hackverse 5.0",
+      type: "Attendee",
+      rank: "Attended",
+      category: "Web3",
+      date: "January 2025",
+      description: "Networked with Web3 builders at NITK Surathkal",
+      participants: "500+",
+      location: "NITK Surathkal, Karnataka",
+      icon: Award,
+      color: "from-indigo-500 to-blue-600",
+      stats: {
+        Workshops: "10+",
+        Speakers: "20+",
+        Networking: "High",
+      },
+      prize: "Certificate of Participation",
     },
-    prize: "Certificate of Participation",
-  },
-  {
-    title: "Hackverse 2025",
-    type: "Special Mention",
-    rank: "Top 5",
-    category: "Web3",
-    date: "April 2025",
-    description: "Earned recognition for DAO-based knowledge sharing platform at Kanini Technologies",
-    participants: "300+",
-    location: "Kanini Technologies, Chennai",
-    icon: Award,
-    color: "from-orange-500 to-amber-600",
-    stats: {
-      "Teams": "50+",
-      "Duration": "24h",
-      "Prize Pool": "$2K",
+    {
+      title: "Hackverse 2025",
+      type: "Special Mention",
+      rank: "Top 5",
+      category: "Web3",
+      date: "April 2025",
+      description: "Earned recognition for DAO-based knowledge sharing platform at Kanini Technologies",
+      participants: "300+",
+      location: "Kanini Technologies, Chennai",
+      icon: Award,
+      color: "from-orange-500 to-red-500",
+      stats: {
+        Teams: "50+",
+        Duration: "24h",
+        "Prize Pool": "$2K",
+      },
+      prize: "Special Mention",
     },
-    prize: "Special Mention",
-  },
-  {
-    title: "Rotatech-X",
-    type: "Attendee",
-    rank: "Attended",
-    category: "Web2 & Web3",
-    date: "April 2025",
-    description: "Explored real-time apps and blockchain integrations at Yuniq Technologies",
-    participants: "400+",
-    location: "Yuniq Technologies, Chennai",
-    icon: Zap,
-    color: "from-rose-400 to-red-500",
-    stats: {
-      "Teams": "90+",
-      "Duration": "24h",
-      "Prize Pool": "$1K",
+    {
+      title: "Rotatech-X",
+      type: "Attendee",
+      rank: "Attended",
+      category: "Web2 & Web3",
+      date: "April 2025",
+      description: "Explored real-time apps and blockchain integrations at Yuniq Technologies",
+      participants: "400+",
+      location: "Yuniq Technologies, Chennai",
+      icon: Zap,
+      color: "from-red-500 to-pink-600",
+      stats: {
+        Teams: "90+",
+        Duration: "24h",
+        "Prize Pool": "$1K",
+      },
+      prize: "Certificate of Participation",
     },
-    prize: "Certificate of Participation",
-  },
-];
-
-  // Matrix rain effect
-
-
-  useEffect(() => {
-    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン01234567890"
-    const newRain = []
-    
-    for (let i = 0; i < 20; i++) {
-      newRain.push({
-        id: i,
-        x: Math.random() * 100,
-        delay: Math.random() * 2,
-        chars: Array.from({ length: 10 }, () => chars[Math.floor(Math.random() * chars.length)])
-      })
-    }
-    setMatrixRain(newRain)
-
-    // Scanline animation
-    const scanInterval = setInterval(() => {
-      setScanlinePosition(prev => (prev + 1) % 100)
-    }, 50)
-
-    // Random glitch effect
-    const glitchInterval = setInterval(() => {
-      setGlitchActive(true)
-      setTimeout(() => setGlitchActive(false), 200)
-    }, 5000)
-
-    return () => {
-      clearInterval(scanInterval)
-      clearInterval(glitchInterval)
-    }
-  }, [])
+  ]
 
   const nextHackathon = () => setActiveIndex((prev) => (prev + 1) % hackathons.length)
   const prevHackathon = () => setActiveIndex((prev) => (prev - 1 + hackathons.length) % hackathons.length)
 
   const currentHackathon = hackathons[activeIndex]
 
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case "Winner":
+        return "bg-gradient-to-r from-amber-500 to-yellow-500 text-white"
+      case "Special Mention":
+        return "bg-gradient-to-r from-violet-500 to-purple-500 text-white"
+      case "Participant":
+      case "Attendee":
+        return "bg-gradient-to-r from-violet-500 to-indigo-500 text-white"
+      default:
+        return "bg-gradient-to-r from-gray-500 to-gray-600 text-white"
+    }
+  }
+
   return (
-    <section id="hackathons" className="min-h-screen relative bg-black overflow-hidden">
-      {/* Matrix Rain Background */}
-      <div className="absolute inset-0 opacity-30">
-        {matrixRain.map((rain) => (
-          <div
-            key={rain.id}
-            className="absolute top-0 text-green-400 text-xs font-mono leading-tight animate-pulse"
-            style={{
-              left: `${rain.x}%`,
-              animationDelay: `${rain.delay}s`,
-              animation: `matrixFall 8s linear infinite ${rain.delay}s`
-            }}
-          >
-            {rain.chars.map((char, idx) => (
-              <div key={idx} className="opacity-70">{char}</div>
-            ))}
-          </div>
-        ))}
+    <section id="hackathons" className="py-20 bg-gradient-to-br from-white via-violet-50/30 to-white relative overflow-hidden">
+      {/* Futuristic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating Orbs */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-violet-300/30 to-indigo-300/30 rounded-full blur-lg animate-bounce"></div>
+        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-purple-400/15 to-violet-400/15 rounded-full blur-2xl animate-pulse"></div>
+
+        {/* Grid Pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(139, 69, 255, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139, 69, 255, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
-      {/* Animated Grid Background */}
-      <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(0,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,255,255,0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px',
-          animation: 'gridPulse 4s ease-in-out infinite'
-        }}
-      />
-
-      {/* Scanline Effect */}
-      <div 
-        className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60 z-10"
-        style={{
-          top: `${scanlinePosition}%`,
-          boxShadow: '0 0 20px cyan',
-          transition: 'top 0.05s linear'
-        }}
-      />
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0">
-        {Array.from({ length: particleCount }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float 6s ease-in-out infinite ${Math.random() * 6}s`
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 py-20 z-20">
-        {/* Futuristic Header */}
-        <div className="text-center mb-16">
-          <div className={`text-8xl md:text-9xl font-black mb-8 ${glitchActive ? 'animate-pulse' : ''}`}>
-            <div className="relative inline-block">
-              <span 
-                className={`absolute inset-0 text-red-500 ${glitchActive ? 'translate-x-1' : ''}`}
-                style={{ clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)' }}
-              >
-                HACK:::MATRIX
-              </span>
-              <span 
-                className={`absolute inset-0 text-blue-500 ${glitchActive ? '-translate-x-1' : ''}`}
-                style={{ clipPath: 'polygon(0 55%, 100% 55%, 100% 100%, 0 100%)' }}
-              >
-                HACK:::MATRIX
-              </span>
-              <span className={`relative text-transparent bg-clip-text bg-gradient-to-r ${currentHackathon.color}`}>
-                HACK:::MATRIX
-              </span>
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-4 mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-purple-600 rounded-2xl blur-lg opacity-50"></div>
+              <div className="relative p-4 bg-gradient-to-r from-violet-500 to-purple-600 rounded-2xl">
+                <Code className="w-10 h-10 text-white" />
+              </div>
             </div>
+            <h2 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Hackathons
+            </h2>
           </div>
-          
-          <div className="font-mono text-cyan-400 text-xl tracking-wider">
-            <Terminal className="inline-block w-6 h-6 mr-2 animate-pulse" />
-            SYSTEM_STATUS: [ONLINE] • THREAT_LEVEL: [MINIMAL] • ACCESS: [GRANTED]
-          </div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Exploring innovation through competitive programming and collaborative development
+          </p>
         </div>
 
-        {/* Main Holographic Display */}
-        <div className="relative">
-          <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-xl animate-pulse" />
-          
-          <div className="relative bg-black/70 backdrop-blur-xl rounded-3xl border-2 border-cyan-500/30 overflow-hidden">
-            {/* Hologram Effect Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-transparent to-purple-500/5 pointer-events-none" />
-            
-            <div className="p-12">
-              {/* Header Section */}
-              <div className="flex items-start justify-between mb-12">
-                <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <Code className="w-8 h-8 text-cyan-400 animate-pulse" />                    <h3 className="text-5xl font-black text-white tracking-wide">
-                      {currentHackathon.title}
-                    </h3>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-4">
-                    <div className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono backdrop-blur-sm">
-                      <Calendar className="w-4 h-4 inline-block mr-2" />
-                      TIMESTAMP: {currentHackathon.date}
-                    </div>
-                    <div className="px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono backdrop-blur-sm">
-                      <MapPin className="w-4 h-4 inline-block mr-2" />
-                      LOCATION: {currentHackathon.location}
-                    </div>
-                  </div>
+        {/* Main Featured Card */}
+        <div className="relative max-w-6xl mx-auto mb-20">
+          <div className="absolute -inset-1 bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-500 rounded-3xl blur-lg opacity-20 animate-pulse"></div>
+
+          <Card className="relative bg-white/80 backdrop-blur-xl border-0 shadow-2xl rounded-3xl overflow-hidden">
+            <CardContent className="p-0">
+              {/* Hero Section */}
+              <div
+                className={`relative p-8 md:p-12 bg-gradient-to-br ${currentHackathon.color} text-white overflow-hidden`}
+              >
+                {/* Animated Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:20px_20px] animate-pulse"></div>
                 </div>
 
-                {/* 3D Floating Icon */}
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-500" />
-                  <div className="relative p-8 rounded-2xl bg-black/40 border border-cyan-500/30 backdrop-blur-sm transform group-hover:scale-110 group-hover:rotate-y-12 transition-all duration-500">
-                    <currentHackathon.icon className="w-16 h-16 text-cyan-400" />
-                  </div>
-                </div>
-              </div>
+                <div className="relative z-10">
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl border border-white/30">
+                          <currentHackathon.icon className="w-8 h-8" />
+                        </div>
+                        <Badge
+                          className={`${getTypeColor(currentHackathon.type)} border-0 px-4 py-2 text-sm font-semibold shadow-lg`}
+                        >
+                          {currentHackathon.type}
+                        </Badge>
+                      </div>
 
-              {/* Stats Dashboard */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                {Object.entries(currentHackathon.stats).map(([key, value], idx) => (
-                  <div
-                    key={key}
-                    className="group relative transform hover:scale-105 transition-all duration-300"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/20 group-hover:border-cyan-500/50">
-                      <div className="text-5xl font-black text-white mb-3 font-mono">{value}</div>
-                      <div className="text-cyan-400 font-mono text-sm tracking-wider">{key}</div>
-                      <div className="absolute top-4 right-4">
-                        <Zap className="w-6 h-6 text-cyan-400 opacity-30 group-hover:opacity-100 transition-opacity" />
+                      <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{currentHackathon.title}</h3>
+
+                      <div className="flex flex-wrap gap-6 text-white/90 mb-6">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-5 h-5" />
+                          <span className="font-medium">{currentHackathon.date}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-5 h-5" />
+                          <span className="font-medium">{currentHackathon.location}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Users className="w-5 h-5" />
+                          <span className="font-medium">{currentHackathon.participants} participants</span>
+                        </div>
+                      </div>
+
+                      <p className="text-lg text-white/95 leading-relaxed">{currentHackathon.description}</p>
+                    </div>
+
+                    {/* Achievement Badge */}
+                    <div className="flex-shrink-0">
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-white/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                        <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center">
+                          <Star className="w-12 h-12 mx-auto mb-3 text-yellow-300" />
+                          <div className="text-2xl font-bold mb-1">{currentHackathon.rank}</div>
+                          <div className="text-sm opacity-90">{currentHackathon.category}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
 
-              {/* Description */}
-              <div className="mb-8">
-                <p className="text-xl text-white/90 font-mono leading-relaxed tracking-wide">
-                  {currentHackathon.description}
-                </p>
-              </div>
+              {/* Stats and Prize Section */}
+              <div className="p-8 md:p-12 bg-gradient-to-br from-white to-violet-50/50">
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  {Object.entries(currentHackathon.stats).map(([key, value], idx) => (
+                    <div key={key} className="group relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                      <div className="relative text-center p-8 rounded-2xl bg-white border border-violet-100 group-hover:border-violet-200 transition-all duration-300 shadow-sm group-hover:shadow-lg">
+                        <div className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-3">
+                          {value}
+                        </div>
+                        <div className="text-sm font-medium text-gray-600 uppercase tracking-wider">{key}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
-              {/* Prize Section */}
-              <div className="flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30">
-                <Award className="w-10 h-10 text-yellow-400 animate-bounce" />
-                <div>
-                  <div className="text-sm text-yellow-400 font-mono opacity-70">GRAND_PRIZE</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                    {currentHackathon.prize}
+                {/* Prize Section */}
+                <div className="relative overflow-hidden rounded-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-yellow-500/10"></div>
+                  <div className="relative flex items-center justify-between p-6 bg-white/50 backdrop-blur-sm border border-amber-200/50 rounded-2xl">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl text-white shadow-lg">
+                        <Award className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-amber-700 mb-1">Achievement</div>
+                        <div className="text-xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
+                          {currentHackathon.prize}
+                        </div>
+                      </div>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-amber-600" />
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
 
-          {/* Navigation Controls */}
-          <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 flex items-center gap-12">
-            <button
+          {/* Navigation */}
+          <div className="flex items-center justify-center gap-8 mt-12">
+            <Button
+              variant="outline"
+              size="icon"
               onClick={prevHackathon}
-              className="group relative p-4 rounded-full bg-black/50 border border-cyan-500/30 backdrop-blur-sm hover:border-cyan-500 transition-all duration-300"
+              className="w-14 h-14 rounded-full border-2 border-violet-200 hover:border-violet-400 hover:bg-violet-50 transition-all duration-200 group"
             >
-              <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              <ChevronLeft className="w-8 h-8 text-cyan-400 relative z-10" />
-            </button>
+              <ChevronLeft className="w-6 h-6 text-violet-600 group-hover:text-violet-700" />
+            </Button>
 
-            {/* Index Indicators */}
+            {/* Dots Indicator */}
             <div className="flex gap-3">
               {hackathons.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    idx === activeIndex 
-                      ? 'bg-cyan-400 shadow-lg shadow-cyan-400/50' 
-                      : 'bg-white/20 hover:bg-white/40'
+                    idx === activeIndex
+                      ? "bg-gradient-to-r from-violet-500 to-purple-500 scale-125 shadow-lg"
+                      : "bg-violet-200 hover:bg-violet-300"
                   }`}
                 />
               ))}
             </div>
 
-            <button
+            <Button
+              variant="outline"
+              size="icon"
               onClick={nextHackathon}
-              className="group relative p-4 rounded-full bg-black/50 border border-cyan-500/30 backdrop-blur-sm hover:border-cyan-500 transition-all duration-300"
+              className="w-14 h-14 rounded-full border-2 border-violet-200 hover:border-violet-400 hover:bg-violet-50 transition-all duration-200 group"
             >
-              <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              <ChevronRight className="w-8 h-8 text-cyan-400 relative z-10" />
-            </button>
+              <ChevronRight className="w-6 h-6 text-violet-600 group-hover:text-violet-700" />
+            </Button>
+          </div>
+
+          {/* Progress Indicator */}
+          <div className="text-center mt-6">
+            <span className="text-sm text-gray-500 font-medium">
+              {activeIndex + 1} of {hackathons.length}
+            </span>
+          </div>
+        </div>
+
+        {/* Quick Overview Grid */}
+        <div className="mt-24">
+          <h3 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+            All Hackathons Overview
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {hackathons.map((hackathon, idx) => (
+              <Card
+                key={idx}
+                className={`cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl group border-0 bg-white/60 backdrop-blur-sm ${
+                  idx === activeIndex ? "ring-2 ring-violet-400 shadow-xl scale-105" : "hover:bg-white/80"
+                }`}
+                onClick={() => setActiveIndex(idx)}
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div
+                      className={`p-3 rounded-xl bg-gradient-to-br ${hackathon.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-200`}
+                    >
+                      <hackathon.icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-gray-900 truncate mb-1">{hackathon.title}</h4>
+                      <p className="text-sm text-gray-600">{hackathon.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Badge className={`${getTypeColor(hackathon.type)} border-0 text-xs px-3 py-1`}>
+                      {hackathon.rank}
+                    </Badge>
+                    <span className="text-xs text-gray-500 font-medium">{hackathon.category}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes matrixFall {
-          to {
-            transform: translateY(100vh);
-          }
-        }
-        
-        @keyframes gridPulse {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.4; }
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          33% { transform: translateY(-20px) rotate(120deg); }
-          66% { transform: translateY(10px) rotate(240deg); }
-        }
-      `}</style>
     </section>
   )
 }
