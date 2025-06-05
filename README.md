@@ -1,161 +1,191 @@
 
-# Jana's Portfolio Website
+---
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and TailwindCSS. Features dynamic content loading, smooth animations, and a dark mode toggle.
+### 👋 Hi, I’m **Janakiraman K** — a dreamer, builder, and blockchain engineer shaping the future with code.
 
-## 🚀 Features
+Ever since I wrote my first line of code, I felt something shift inside me — not just because I was interacting with a machine, but because I realized I could **create worlds** with just logic, intention, and imagination. Today, I’m not just a student of engineering — I’m a **creator of ecosystems**, an architect of decentralized futures, and a passionate advocate of using technology for purposeful, paradigm-shifting innovation.
 
-* **Responsive Design**: Fully responsive across all devices
-* **Dark Mode**: System-aware dark mode with manual toggle
-* **Dynamic Content**: Content loaded from API endpoints
-* **Smooth Animations**: Using Framer Motion for smooth transitions
-* **SEO Optimized**: Built with Next.js for optimal SEO performance
+I’m currently pursuing my **Bachelor of Technology in Information Technology** at *Jaya Engineering College* (Class of 2026), and my academic journey has been both a launchpad and a testing ground for my real-world ventures. With a current CGPA of **8.89**, I’ve maintained a solid academic foundation while simultaneously leading and building high-impact technical projects that explore the bleeding edge of **Web2, Web3, AI, and beyond**.
 
-### Key Sections
+---
 
-* 📚 Books & Publications
-* 💼 Professional Experience
-* 🎯 Skills & Expertise
-* 🏆 Certifications
-* 🌟 Featured Projects
-* 📅 Events & Activities
-* 📝 Blog Posts
-* 📫 Contact Information
+## 💡 My Philosophy as a Builder
 
-## 🛠️ Tech Stack
+At my core, I believe in **building with intent**. Code is not just syntax to me — it’s poetry with purpose. Every application, every backend system, every smart contract I write serves a clear function in solving real problems — whether in **education, justice, finance, or community engagement**.
 
-* **Framework**: Next.js 14
-* **Language**: TypeScript
-* **Styling**: TailwindCSS
-* **Animations**: Framer Motion
-* **UI Components**: shadcn/ui
-* **Icons**: Lucide Icons
-* **API Integration**: Axios
-* **Deployment**: Vercel
+I also believe in **ownership and empowerment**. That’s why I love blockchain. It’s not just about decentralization; it’s about restoring trust, ensuring transparency, and enabling **self-sovereign digital identities**.
 
-## 🚀 Getting Started
+And above all, I value **simplicity**. Not everything has to be complicated. My design, architecture, and UX decisions are always made with the end user in mind — clean, fast, futuristic, and functional.
 
-### Prerequisites
+---
 
-* Node.js 18+
-* npm or yarn
+## 🧠 Skill Stack & Tech Arsenal
 
-### Installation
+Here’s what I’ve mastered and use daily in my work:
 
-1. Clone the repository:
+### ⚙️ **Core Technical Skills**
 
-```bash
-git clone https://github.com/Janakiraman1021/JANA_PORT_NXT.git
-```
+* **Languages**: JavaScript, TypeScript, Solidity, Python, C++, SQL, HTML/CSS
+* **Web Frameworks**: Next.js, React.js, Express.js, Tailwind CSS
+* **Backend & APIs**: Node.js, RESTful APIs, MongoDB, Mongoose, PostgreSQL, JWT
+* **Blockchain**: Ethereum (EVM), Smart Contracts (Solidity), WalletConnect, RainbowKit, IPFS, Soulbound Tokens (SBTs), DAO Governance
+* **AI/ML**: Python-based ML libraries, image classification models (for agriculture/disease detection)
+* **Authentication**: OAuth (Google, GitHub, LinkedIn, Email), Web3 wallet logins
+* **Tools**: Git, Docker, Postman, Figma, Unity (for 3D environments), Resend, Nodemailer, Uploadthing
 
-2. Install dependencies:
+### 🌐 Web3 Integrations
 
-```bash
-cd JANA_PORT_NXT
-npm install
-```
+* Multi-chain support (Ethereum, Avalanche, Aptos)
+* Decentralized Identity (DID)
+* NFT and Token standards (ERC-721, ERC-20, custom)
+* Blockchain-based CRUD logic
+* Decentralized Storage using IPFS
+* DAO smart contracts with proposal voting
 
-3. Create a `.env.local` file:
+---
 
-```env
-# Add your environment variables here
-# Example:
-# NEXT_PUBLIC_API_URL=<your_api_endpoint>
-```
+## 🧑‍💻 My Projects — The Things I’m Most Proud Of
 
-4. Start the development server:
+### 🔒 BlockSentinel – **Your Digital Evidence, Verified & Immutable**
 
-```bash
-npm run dev
-```
+**Stack**: Ethereum (Sepolia), IPFS, Node.js, Next.js, MongoDB, Role-Based Access
 
-## 📂 Project Structure
+**What it does**: BlockSentinel is an AI-powered blockchain platform that ensures **tamper-proof handling of digital evidence** in cybercrime investigations. It maintains **version control**, a **chain of custody**, and assigns **reputation scores** to forensic agents.
 
-```
-JANA_PORT_NXT/
-├── app/                    # Next.js app directory
-├── components/             # Reusable components
-│   ├── sections/          # Page sections
-│   └── ui/               # UI components
-├── lib/                   # Utility functions
-├── public/                # Static assets
-│   ├── assets/           # Images and media
-│   └── fonts/           # Custom fonts
-├── styles/               # Global styles
-└── types/                # TypeScript types
-```
+**Why it matters**: In a world where digital evidence can be manipulated easily, BlockSentinel acts as a **guardian of truth**. It empowers law enforcement and victims with a **transparent, auditable, and decentralized proof system**.
 
-## 🔧 Configuration
+**Features**:
 
-### Environment Variables
+* Role-based access: users, authorized personnel, admins
+* CRUD-enabled blockchain evidence with version history
+* AI verifier to check image/document tampering
+* Complaint registration, FIR uploads, and secure access control
+* Evidence immutability with verifiable metadata on-chain
 
-* `NEXT_PUBLIC_API_URL`: API endpoint URL (set in `.env.local`)
+This is one of the projects closest to my heart — it blends AI, blockchain, real-world justice, and digital security all in one.
 
-### API Integration
+---
 
-The website fetches data from several endpoints:
+### 🌌 Lexora – **The Learn-to-Earn Metaverse**
 
-* `/api/skills` - Technical skills and proficiency levels
-* `/api/projects` - Portfolio projects
-* `/api/books` - Published books and writings
-* `/api/certifications` - Professional certifications
-* `/api/events` - Events and speaking engagements
+**Stack**: Next.js, MongoDB, IPFS, RainbowKit, Ethereum, Avalanche, Aptos
 
-## 🎨 Customization
+**What it does**: Lexora is a futuristic learning ecosystem where **education meets blockchain**. It’s a gamified 3D Metaverse that allows learners to **own courses as NFTs**, earn rewards via **\$L2E tokens**, and prove their skills using **Soulbound certifications**.
 
-### Theming
+**My Role**: I lead the **backend and blockchain development**, while my partner Sadhana handles frontend and design.
 
-Colors and theme settings can be modified in:
+**Key Innovations**:
 
-```bash
-tailwind.config.js
-```
+* DAO-based governance for course content
+* WalletConnect + traditional OAuth for login
+* Soulbound Token (SBT) for non-transferable, skill-proof certifications
+* Courses stored both on MongoDB and IPFS
+* Multi-chain interoperability
+* Built-in CoinDCX integration for Web3 interaction
 
-### Content
+We’re also developing a **3D classroom** in Unity to offer an immersive, personalized learning space.
 
-Update the API endpoints in `lib/api.ts` to point to your backend service.
+---
 
-## 📱 Progressive Web App
+### 🌍 Devpulse – **The Unified Platform for Builders**
 
-The website is PWA-ready with:
+**Stack**: MongoDB, JWT, OAuth, WalletConnect, Next.js, Zustand, Shadcn/UI, React Query
 
-* Service Worker support
-* Offline capability
-* App manifest
-* Install prompts
+**What it does**: Devpulse is a **one-stop platform** for the RTx community — combining features of a blog site, news portal, event hub (like Luma), hackathon platform (like Devfolio), and a freelance/project marketplace.
 
-## 🚀 Deployment
+**Modules**:
 
-### Vercel Deployment
+1. **BlogPulse** – Share articles, insights
+2. **NewsPulse** – Community updates
+3. **EventPulse** – Host and RSVP events
+4. **HackPulse** – Organize and participate in hackathons
+5. **WorkPulse** – Freelance jobs, milestones, and biddings
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Configure environment variables
-4. Deploy!
+**Backend architecture** includes:
 
-🔗 **Live Website**: [https://jana-port-nxt.vercel.app](https://jana-port-nxt.vercel.app)
+* Role-based access (admin, user, developer, client, organizer)
+* Real-time notifications with Socket.io
+* Uploadthing for file uploads
+* Resend for transactional emails
 
-## 📄 License
+This is more than a platform — it's a **digital playground and ecosystem for creators**.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
-## 🤝 Contributing
+### 🛰️ AstroFi – **Decentralizing Space Finance**
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+**What it is**: A DAO that **funds, governs, and profits from space ventures** via blockchain. Features include tokenized space assets, insurance, data monetization, and funding modules.
 
-## 📞 Contact
+**Why it's exciting**: Space is the final frontier — and AstroFi makes it accessible through **community-owned capital and governance**.
 
-Janaki Raman - [@JanakiRaman2002](https://twitter.com/JanakiRaman2002)
+---
 
-Project Link: [https://github.com/Janakiraman1021/JANA\_PORT\_NXT](https://github.com/Janakiraman1021/JANA_PORT_NXT)
+### 🧠 Agro Smart – **AI for Agricultural Disease Detection**
 
-## 🙏 Acknowledgments
+A machine learning system trained to detect **plant diseases from images**, helping farmers act early. Built as a **real-time diagnosis app**, this was one of my early steps into socially impactful AI.
 
-* [Next.js Documentation](https://nextjs.org/docs)
-* [TailwindCSS](https://tailwindcss.com)
-* [Framer Motion](https://www.framer.com/motion)
-* [shadcn/ui](https://ui.shadcn.com)
+---
 
+## 🎨 Design Aesthetic
 
+Every project I build reflects my visual taste:
 
+* **Minimal yet animated**
+* Black, orange, and white themes
+* 3D transitions using modern CSS and JS animation libraries
+* Consistent use of Tailwind and Shadcn/UI for elegance
+
+Design isn’t separate from engineering — it’s how the logic feels when experienced.
+
+---
+
+## 🔐 Core Values I Work By
+
+1. **Integrity Before Innovation** – What you build must be trusted before it's admired.
+2. **User First** – No feature is useful unless it's usable.
+3. **Learn Daily, Build Relentlessly** – I code every day and learn every night.
+4. **Everything is Figure-outable** – No error, bug, or unknown tech scares me.
+5. **Own Your Stack** – I don’t wait for permission to build. I just build.
+
+---
+
+## 🧑‍🎓 Education
+
+* **Bachelor of Technology in IT**
+  Jaya Engineering College, Chennai
+  *2022–2026 | CGPA: 8.89*
+
+* **HSC**
+  Bharathidasan Matriculation Higher Secondary School
+  *Graduated with Distinction*
+
+---
+
+## 🛠 Tools I Use Often
+
+* **Version Control**: Git, GitHub
+* **Dev Tools**: VS Code, Postman, Docker
+* **Design**: Figma, Canva
+* **3D & Game Dev**: Unity (for immersive learning spaces)
+* **Productivity**: Notion, Trello, Linear
+
+---
+
+## 🧑‍🚀 The Vision That Drives Me
+
+My ultimate vision is to **bridge the digital and real worlds** through code — not just to innovate, but to **heal, educate, protect, and empower**.
+
+Whether it’s helping investigators trust evidence, students own their learning, or developers collaborate meaningfully, I want to **leave a mark** — not just on the blockchain, but on people’s lives.
+
+I see a future where **students earn by learning**, **victims trust the digital justice system**, and **builders own their impact** — and I want to build the tech infrastructure to make that future real.
+
+---
+
+## 📬 Want to Connect?
+
+If you’re a fellow builder, startup founder, educator, or just someone who shares the same love for purposeful tech, I’d love to connect, collaborate, and co-create something amazing.
+
+Let’s turn ideas into innovations and dreams into deployments.
+
+---
 
